@@ -56,16 +56,14 @@ Convolutional  Neural  Network  (CNN)  et  Long  Short-Term
 Memory (LSTM). Cet algorithme est ainsi donc appliqué sur les 
 trois bases de données. 
  
-### B.  Reconnaissance de style et d’émotions basés sur des 
-algorithmes de Deep Learning. 
+### B.  Reconnaissance de style et d’émotions basés sur des algorithmes de Deep Learning. 
 Après une première prédiction basée sur l’algorithme KNN, 
 ce  qui  est  demandé  par  la  suite  c’est  la  construction 
 d’architectures de  réseaux de  neurones  afin d’approfondir les 
 analyses. 
  
 # III.  REALISATION DU PROJET 
-### A.  Prise en main des bases de données et gestion des 
-données 
+### A.  Prise en main des bases de données et gestion des données 
 
 La  première  étape  de  ce  projet  est  la  récupération  des 
 données sur internet et la constitution des différentes bases de 
