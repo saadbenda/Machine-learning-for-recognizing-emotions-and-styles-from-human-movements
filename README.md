@@ -155,8 +155,8 @@ réalisé  un  remplissage  (Padding)  sur  les  séquences  de  petite
 taille en rajoutant des 0 à la fin de chaque matrice afin qu’elles 
 aient la même taille que la plus grande séquence. Bien entendu, 
 cela ne cause pas de problèmes car nous avons  normalisé les 
-valeurs entre [-1, 1]. 
-![img12](./doc/img12.jpg)
+valeurs entre [-1, 1].         
+![img12](./doc/img12.jpg)        
 Le modèle LSTM choisi est composé de 3 couches LSTM 
 suivies  par  deux  couches  Dense  (Fully  Connected)  dont  la 
 dernière comprend un nombre de neurones égale au nombre de 
@@ -165,7 +165,7 @@ Nous n’avons pas pu lancer les entrainement sur les autres
 bases de données par manque de temps étant donné le temps 
 demandé pour lancé un apprentissage complet. 
 ![img13](./doc/img13.jpg)  
-IV.  PROBLEMES RENCONTRES 
+# IV.  PROBLEMES RENCONTRES 
  
 Le  principal  problème  rencontré  a  été  le  temps 
 d’entrainement  de  nos  modèles.  Lorsqu’on  devait  modifier 
@@ -177,7 +177,7 @@ lancer sur GPU.
 Il y avait également la recherche des bon hyperparamètres 
 et d’architecture de nos réseaux de neurones. 
  
-V.  OPTIMISATIONS POUR LA SUITE 
+# V.  OPTIMISATIONS POUR LA SUITE 
 Plusieurs optimisations restent toutefois envisageables dans 
 le cadre de ce projet. 
 Dans  la  représentation  des  séquences  de  squelette 
@@ -186,7 +186,7 @@ Skeleton Pose-Motion Feature (SPMF), mais aussi modifier les
 hyperparamètres voire même l’architecture afin d’améliorer ses 
 prédictions, de même pour le modèle LSTM.  
  
-VI.  CONCLUSION  
+# VI.  CONCLUSION  
  
 Aujourd’hui  nos  algorithmes  KNN,  CNN  sont 
 opérationnels  bien  que  toujours  optimisables.  L’algorithme 
@@ -196,13 +196,14 @@ connaissances des algorithmes de Machine Learning ainsi que
 des bibliothèques tels que Keras, Tensorflow avec en parallèle 
 la programmation en Python que nous avions utilisé pour notre 
 projet de 2ième portant tout aussi sur le Machine Learning. 
-       Remerciements 
+       
+##### Remerciements 
  
 Nous souhaitons à remercier monsieur Maxime DEVANNE 
 pour le temps ainsi que les précieux conseils qu’il nous a accordé 
 tout  au  long  de  ce  projet.  Nous  le  remercions  aussi  pour  sa 
 patience. 
-        REFERENCES 
+##### REFERENCES 
  
 [1].  Documentation sur la transformation SPMF : 
 https://www.mdpi.com/1424-8220/19/8/1932/htm 
