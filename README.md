@@ -1,6 +1,7 @@
 # Machine learning for recognizing emotions and styles from human movements
+# Apprentissage automatique pour la reconnaissance d’émotions et de styles à partir de mouvements humains          
  
-Résume — Ce projet présente la mise en place d’algorithmes 
+Résumé — Ce projet présente la mise en place d’algorithmes 
 de Machines Learning et de Deep Learning afin de reconnaitre et 
 identifier  les  personnes  qui  réalisent  des  actions  données.  On 
 utilise notamment des réseaux de neurones convolutifs (CNN) et 
@@ -71,7 +72,7 @@ données. Cette extraction de fichiers a été automatisée grâce à
 un script Javascript permettant de toutes les télécharger. Puis il 
 a fallu nettoyer les données. 
 
-![img1](./doc/img1.jpg)
+![img1](./doc/img1.jpg)      
 
 Les fichiers dans les bases de données Emotional Body Motion 
 (EBMDB)  et  Dance  Motion  Capture ont  pour  extension 
@@ -96,7 +97,7 @@ Dynamic Time Warping (DTW) car toutes les actions n’ont pas
 la même taille.  
 Il a fallu donc définir la distance entre deux frames. Pour 
 cela on a utilisé la distance euclidienne. 
-![img2](./doc/img2.jpg)
+![img2](./doc/img2.jpg)       
 
 Le calcul de la DTW pouvant prendre beaucoup de temps, 
 notamment comme c’est le cas ici avec des actions de grandes 
@@ -105,7 +106,7 @@ Max_Warping permettant de limiter le nombre de calcul dans
 la  matrice  résultante  de  la  DTW  sans  pour  autant  avoir  un 
 impact sur le résultat du calcul de la distance. 
 ![img3](./doc/img3.jpg)
-![img4](./doc/img4.jpg)
+![img4](./doc/img4.jpg)       
 ### C.  Méthodes de Deep Learning 
 #### 1)  CNN (CONVOLUTION NEURAL NETWORK) 
 Afin d’améliorer si possible les résultats de l’algorithme KNN, 
@@ -116,7 +117,7 @@ afin d’en faire des prédictions.
  
 ##### a)  Encodage RGB des séquences. 
 ![img5](./doc/img5.jpg)
-![img6](./doc/img6.jpg)
+![img6](./doc/img6.jpg)       
 ##### b)  Architecture du model CNN 
 Les données d’entrée de notre modèle sont des images RGB 
 que  l’on  a  ramené  à  une  taille  de  32 × 32   afin  que  les 
@@ -127,7 +128,7 @@ Nous avons utilisé plusieurs architectures différentes parmi
 lesquels DenseNeT afin d’évaluer nos données sur des modèles 
 déjà  entrainés  mais  aussi  des  modèles  que  nous  avons  créés 
 nous-même. 
-![img7](./doc/img7.jpg)
+![img7](./doc/img7.jpg)     
 Nous avons modifié ainsi le nombre de blocks dense(dense_block), la 
 profondeur de chaque bloc, growth_rate(liaisons entre les couches d’un 
 dense_bloc) et le nombre de filtres (filter) à appliquer pour faire corres-
@@ -138,7 +139,7 @@ Notre modèle :
 ![img8](./doc/img8.jpg)
 ![img9](./doc/img9.jpg)
 ![img10](./doc/img10.jpg)
-![img11](./doc/img11.jpg)
+![img11](./doc/img11.jpg)     
 Ces résultats nous montrent que la prédiction de sujet/style par ce model CNN 
 est en soi assez complexe surtout quand les gestes réalisés ne demandent pas de 
 grands mouvements, mais sont différenciable que par l’humeur.  
@@ -156,7 +157,7 @@ taille en rajoutant des 0 à la fin de chaque matrice afin qu’elles
 aient la même taille que la plus grande séquence. Bien entendu, 
 cela ne cause pas de problèmes car nous avons  normalisé les 
 valeurs entre [-1, 1].         
-![img12](./doc/img12.jpg)        
+![img12](./doc/img12.jpg)             
 Le modèle LSTM choisi est composé de 3 couches LSTM 
 suivies  par  deux  couches  Dense  (Fully  Connected)  dont  la 
 dernière comprend un nombre de neurones égale au nombre de 
@@ -206,7 +207,7 @@ patience.
 ##### REFERENCES 
  
 [1].  Documentation sur la transformation SPMF : 
-https://www.mdpi.com/1424-8220/19/8/1932/htm 
+https://www.mdpi.com/1424-8220/19/8/1932/htm          
 [2].  H. Pham, Louahdi Khoudour, Alain Crouzil, Pablo Zegers, Sergio 
 A. Velastin, ‘’ Exploiting deep residual networks for human action 
 recognition from skeletal data’’, pp 5-13 
