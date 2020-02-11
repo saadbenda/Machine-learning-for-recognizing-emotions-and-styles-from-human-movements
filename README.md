@@ -115,3 +115,100 @@ en place un model convolutif prenant en entrée des images
 afin d’en faire des prédictions. 
  
 ##### a)  Encodage RGB des séquences. 
+![img5](./doc/img5.jpg)
+![img6](./doc/img6.jpg)
+##### b)  Architecture du model CNN 
+Les données d’entrée de notre modèle sont des images RGB 
+que  l’on  a  ramené  à  une  taille  de  32 × 32   afin  que  les 
+différences  de  taille  entre  les  séquences  ne  posent  pas  un 
+problème pour la première couche de neurone de notre réseau de 
+neurones. 
+Nous avons utilisé plusieurs architectures différentes parmi 
+lesquels DenseNeT afin d’évaluer nos données sur des modèles 
+déjà  entrainés  mais  aussi  des  modèles  que  nous  avons  créés 
+nous-même. 
+![img7](./doc/img7.jpg)
+Nous avons modifié ainsi le nombre de blocks dense(dense_block), la 
+profondeur de chaque bloc, growth_rate(liaisons entre les couches d’un 
+dense_bloc) et le nombre de filtres (filter) à appliquer pour faire corres-
+pondre à chaque base de données. 
+ 
+ 
+Notre modèle :  
+![img8](./doc/img8.jpg)
+![img9](./doc/img9.jpg)
+![img10](./doc/img10.jpg)
+![img11](./doc/img11.jpg)
+Ces résultats nous montrent que la prédiction de sujet/style par ce model CNN 
+est en soi assez complexe surtout quand les gestes réalisés ne demandent pas de 
+grands mouvements, mais sont différenciable que par l’humeur.  
+ 
+#### 2)  LSTM (Long short-term memory) 
+Nous utilisons des réseaux de neurones LSTM car ils sont 
+optimisés pour le travail sur les séries temporelles comme c’est 
+le cas dans notre projet. Pour cela il a fallu mettre les données 
+sous forme 3D (x, y, z) avec en x le nombre d'actions, en y le 
+nombre  de  timesteps  pour  une  action  et  en  z  le  nombre  de 
+paramètres. 
+Afin de donner une taille fixe à toutes les séquences, on a 
+réalisé  un  remplissage  (Padding)  sur  les  séquences  de  petite 
+taille en rajoutant des 0 à la fin de chaque matrice afin qu’elles 
+aient la même taille que la plus grande séquence. Bien entendu, 
+cela ne cause pas de problèmes car nous avons  normalisé les 
+valeurs entre [-1, 1]. 
+![img12](./doc/img12.jpg)
+Le modèle LSTM choisi est composé de 3 couches LSTM 
+suivies  par  deux  couches  Dense  (Fully  Connected)  dont  la 
+dernière comprend un nombre de neurones égale au nombre de 
+classes à prédire avec une activation Softmax. 
+Nous n’avons pas pu lancer les entrainement sur les autres 
+bases de données par manque de temps étant donné le temps 
+demandé pour lancé un apprentissage complet. 
+![img13](./doc/img13.jpg)  
+IV.  PROBLEMES RENCONTRES 
+ 
+Le  principal  problème  rencontré  a  été  le  temps 
+d’entrainement  de  nos  modèles.  Lorsqu’on  devait  modifier 
+certains  hyperparamètres.  Cela  pouvait  demander  des  temps 
+d’entrainement et de validation assez grands. Car les machines 
+sur lesquelles s’exécutent ces apprentissages ne sont pas assez 
+performantes ou n’ont pas de bonne carte graphique afin de les 
+lancer sur GPU. 
+Il y avait également la recherche des bon hyperparamètres 
+et d’architecture de nos réseaux de neurones. 
+ 
+V.  OPTIMISATIONS POUR LA SUITE 
+Plusieurs optimisations restent toutefois envisageables dans 
+le cadre de ce projet. 
+Dans  la  représentation  des  séquences  de  squelette 
+notamment, en utilisant des méthodes plus efficaces telles que le 
+Skeleton Pose-Motion Feature (SPMF), mais aussi modifier les 
+hyperparamètres voire même l’architecture afin d’améliorer ses 
+prédictions, de même pour le modèle LSTM.  
+ 
+VI.  CONCLUSION  
+ 
+Aujourd’hui  nos  algorithmes  KNN,  CNN  sont 
+opérationnels  bien  que  toujours  optimisables.  L’algorithme 
+LSTM fonctionne moyennement. Ce projet nous a permis de 
+manipuler les séries temporelles mais aussi d’approfondir nos 
+connaissances des algorithmes de Machine Learning ainsi que 
+des bibliothèques tels que Keras, Tensorflow avec en parallèle 
+la programmation en Python que nous avions utilisé pour notre 
+projet de 2ième portant tout aussi sur le Machine Learning. 
+       Remerciements 
+ 
+Nous souhaitons à remercier monsieur Maxime DEVANNE 
+pour le temps ainsi que les précieux conseils qu’il nous a accordé 
+tout  au  long  de  ce  projet.  Nous  le  remercions  aussi  pour  sa 
+patience. 
+        REFERENCES 
+ 
+[1].  Documentation sur la transformation SPMF : 
+https://www.mdpi.com/1424-8220/19/8/1932/htm 
+[2].  H. Pham, Louahdi Khoudour, Alain Crouzil, Pablo Zegers, Sergio 
+A. Velastin, ‘’ Exploiting deep residual networks for human action 
+recognition from skeletal data’’, pp 5-13 
+
+
+
