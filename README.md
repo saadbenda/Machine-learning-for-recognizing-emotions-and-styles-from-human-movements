@@ -77,3 +77,41 @@ Les fichiers dans les bases de données Emotional Body Motion
 (EBMDB)  et  Dance  Motion  Capture ont  pour  extension 
 Biovision Hierarchy (BVH) organisé en arbre. Tandis que dans 
 MSR Action 3D il s’agit de simple fichier txt.   
+
+### B.  Mise en place de l’algorithme KNN. 
+Dans notre projet, une action est représentée par une matrice 
+de dimension (Nframes, Njoints, Ncoordonnées) car une action 
+est  constituée  de  frames  chacune  d’elle  contenant  des 
+articulations (Joint) et chaque articulation est composée d’un 
+nombre  donné  de  coordonnées  (avec  Nframes=nombre  de 
+frames, Njoints=nombre de d’articulations et Ncoordonnées= 
+nombre décrivant chaque articulation). 
+ 
+Cet  algorithme  prédit  la  classe  d’un  échantillon  en 
+l’associant  à  la  classe  majoritaire  parmi  ses  K  plus  proches 
+voisins nécessitant donc une distance. 
+ 
+Le choix de la distance entre deux actions a été portée sur la 
+Dynamic Time Warping (DTW) car toutes les actions n’ont pas 
+la même taille.  
+Il a fallu donc définir la distance entre deux frames. Pour 
+cela on a utilisé la distance euclidienne. 
+![img2](./doc/img2.jpg)
+
+Le calcul de la DTW pouvant prendre beaucoup de temps, 
+notamment comme c’est le cas ici avec des actions de grandes 
+tailles.  On  a  ainsi  mis  en  place  un  paramètre 
+Max_Warping permettant de limiter le nombre de calcul dans 
+la  matrice  résultante  de  la  DTW  sans  pour  autant  avoir  un 
+impact sur le résultat du calcul de la distance. 
+![img3](./doc/img3.jpg)
+![img4](./doc/img4.jpg)
+### C.  Méthodes de Deep Learning 
+#### 1)  CNN (CONVOLUTION NEURAL NETWORK) 
+Afin d’améliorer si possible les résultats de l’algorithme KNN, 
+notamment dans le cas des Bases de données Emotional Body 
+Motion et Dance Motion Capture, il a été nécessaire de mettre 
+en place un model convolutif prenant en entrée des images 
+afin d’en faire des prédictions. 
+ 
+##### a)  Encodage RGB des séquences. 
